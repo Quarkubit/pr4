@@ -29,10 +29,15 @@ void handle_client(int client_sock, struct sockaddr_in client_addr) {
         if(received <= 0) break;
         buffer[received] = '\0';
 
+
         int guess = atoi(buffer);
         char response[BUFFER_SIZE];
 
-        if(guess < number) {
+
+        if((guess<0) || (guess>100)){
+            strcpy(response,"invalid input");
+            log_message(client_ip, buffer);
+        } else if(guess < number) {
             strcpy(response, "higher");
             log_message(client_ip, buffer);
         } else if(guess > number) {
