@@ -20,12 +20,7 @@ cd guess-number
 
 2. Скомпилировать программы(в случае если компилятор GCC):
 ```bash
-# Сервер
-gcc server.c -o server
-```
-```bash
-# Клиент
-gcc client.c -o client
+make all
 ```
 
 ## Запуск
